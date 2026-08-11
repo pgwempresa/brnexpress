@@ -672,20 +672,11 @@ textarea {
 }
 
 .section-heading.invert strong {
-  color: #ffffff;
-  position: relative;
+  color: var(--red);
 }
 
 .section-heading.invert strong::after {
-  background: linear-gradient(90deg, rgba(238, 28, 37, 0.8), rgba(16, 185, 83, 0.5));
-  border-radius: 999px;
-  bottom: 0.06em;
-  content: "";
-  height: 0.22em;
-  left: 0;
-  position: absolute;
-  right: 0;
-  z-index: -1;
+  content: none;
 }
 
 .project-grid {
