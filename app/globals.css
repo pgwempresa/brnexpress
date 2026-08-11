@@ -196,29 +196,72 @@ textarea {
 }
 
 .mobile-panel {
-  background: rgba(7, 24, 67, 0.98);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.28);
-  display: none;
+  background:
+    linear-gradient(180deg, rgba(7, 24, 67, 0.98), rgba(7, 24, 67, 0.94)),
+    var(--navy);
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  bottom: 0;
+  box-shadow: -24px 0 60px rgba(0, 0, 0, 0.36);
+  display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding: 12px;
-  position: absolute;
-  right: 20px;
-  top: 76px;
-  width: min(320px, calc(100vw - 40px));
+  gap: 6px;
+  padding: 82px 22px 24px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: translateX(105%);
+  transition: transform 260ms ease;
+  width: min(360px, 86vw);
+  z-index: 80;
 }
 
 .mobile-panel.open {
-  display: flex;
+  transform: translateX(0);
+}
+
+.mobile-backdrop {
+  background: rgba(2, 9, 28, 0.54);
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  transition: opacity 220ms ease;
+  z-index: 70;
+}
+
+.mobile-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-close {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  color: var(--white);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 26px;
+  height: 42px;
+  justify-content: center;
+  line-height: 1;
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  width: 42px;
 }
 
 .mobile-panel a {
-  border-radius: 8px;
+  border-radius: 12px;
   color: var(--white);
   font-weight: 800;
-  padding: 13px 14px;
+  padding: 15px 14px;
+  transition: background 160ms ease;
+}
+
+.mobile-panel a:hover {
+  background: rgba(255, 255, 255, 0.09);
 }
 
 .mobile-panel a:last-child {
@@ -592,7 +635,7 @@ textarea {
 .dark-section {
   background:
     linear-gradient(135deg, rgba(7, 24, 67, 0.94), rgba(7, 24, 67, 0.98)),
-    url("/brand/brn-hero.png") center/cover;
+    url("/brand/brn-hero.jpg") center/cover;
   padding: clamp(82px, 9vw, 132px) clamp(20px, 6vw, 84px);
 }
 
@@ -885,7 +928,7 @@ textarea {
 .client-proof-panel {
   background:
     linear-gradient(140deg, rgba(7, 24, 67, 0.94), rgba(11, 35, 94, 0.92)),
-    url("/brand/service-rotas.png") center/cover;
+    url("/brand/service-rotas.jpg") center/cover;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 22px;
   box-shadow: var(--deep-shadow);
@@ -1110,7 +1153,7 @@ textarea {
 .contact-info {
   background:
     linear-gradient(135deg, rgba(7, 24, 67, 0.95), rgba(11, 35, 94, 0.94)),
-    url("/brand/brn-hero.png") center/cover;
+    url("/brand/brn-hero.jpg") center/cover;
   color: var(--white);
   padding: clamp(34px, 5vw, 58px);
   position: relative;
@@ -1482,8 +1525,7 @@ textarea {
   }
 
   .mobile-panel {
-    right: 12px;
-    top: 68px;
+    top: 0;
   }
 
   .hero {

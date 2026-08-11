@@ -13,14 +13,14 @@ export const metadata: Metadata = {
     title: "BRN Express | Transporte & Logística",
     description:
       "Logística expressa para empresas que precisam de prazo, cuidado e controle.",
-    images: ["/og.png"],
+    images: ["/og.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "BRN Express | Transporte & Logística",
     description:
       "Transporte farmacêutico, e-commerce e refrigerado em Tocantins, Brasília e Goiânia.",
-    images: ["/og.png"],
+    images: ["/og.jpg"],
   },
 };
 

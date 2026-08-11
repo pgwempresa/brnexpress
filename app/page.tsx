@@ -48,42 +48,42 @@ const services = [
     title: "Transporte farmacêutico",
     copy: "Operação dedicada para cargas sensíveis, com cuidado no manuseio e previsibilidade no trajeto.",
     benefit: "Mais segurança para produtos de alto valor e exigência.",
-    image: "/brand/service-farmaceutico.png",
+    image: "/brand/service-farmaceutico.jpg",
     Icon: PackageCheck,
   },
   {
     title: "Produtos refrigerados",
     copy: "Soluções para cargas que exigem controle, acondicionamento adequado e atenção em cada etapa.",
     benefit: "Preservação da integridade até a entrega.",
-    image: "/brand/service-refrigerado.png",
+    image: "/brand/service-refrigerado.jpg",
     Icon: Snowflake,
   },
   {
     title: "E-commerce e encomendas",
     copy: "Coletas, distribuição e entregas expressas para empresas que precisam girar pedidos com agilidade.",
     benefit: "Cliente final atendido com rapidez e rastreabilidade operacional.",
-    image: "/brand/service-ecommerce.png",
+    image: "/brand/service-ecommerce.jpg",
     Icon: ShoppingCart,
   },
   {
     title: "Entrega rápida",
     copy: "Atendimento para demandas urgentes, documentos, malotes e cargas leves com prioridade de execução.",
     benefit: "Menos espera entre coleta e destino.",
-    image: "/brand/service-entrega-rapida.png",
+    image: "/brand/service-entrega-rapida.jpg",
     Icon: Zap,
   },
   {
     title: "Cargas fracionadas",
     copy: "Transporte sob medida para volumes variados, otimizando rotas sem abrir mão do cuidado.",
     benefit: "Eficiência de custo para remessas recorrentes.",
-    image: "/brand/service-carga-fracionada.png",
+    image: "/brand/service-carga-fracionada.jpg",
     Icon: Boxes,
   },
   {
     title: "Rotas empresariais",
     copy: "Planejamento de coletas e entregas para operações comerciais com frequência definida.",
     benefit: "Mais previsibilidade para sua rotina logística.",
-    image: "/brand/service-rotas.png",
+    image: "/brand/service-rotas.jpg",
     Icon: Route,
   },
 ];
@@ -102,19 +102,19 @@ const projects = [
     title: "Distribuição para saúde",
     copy: "Transporte com atenção redobrada para produtos farmacêuticos, insumos e cargas sensíveis.",
     bullets: ["Manuseio criterioso", "Coletas programadas", "Acompanhamento comercial"],
-    image: "/brand/service-farmaceutico.png",
+    image: "/brand/service-farmaceutico.jpg",
   },
   {
     title: "Fluxo para e-commerce",
     copy: "Apoio logístico para lojas, sellers e operações que precisam cumprir prazos de entrega.",
     bullets: ["Entregas expressas", "Roteirização por demanda", "Suporte a picos de pedido"],
-    image: "/brand/service-ecommerce.png",
+    image: "/brand/service-ecommerce.jpg",
   },
   {
     title: "Carga refrigerada",
     copy: "Soluções para mercadorias que precisam de acondicionamento adequado e operação disciplinada.",
     bullets: ["Cuidado térmico", "Planejamento de rota", "Entrega com responsabilidade"],
-    image: "/brand/service-refrigerado.png",
+    image: "/brand/service-refrigerado.jpg",
   },
 ];
 
@@ -293,7 +293,7 @@ export default function Home() {
     <main>
       <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
         <a className="brand" href="#inicio" aria-label="BRN Express">
-          <img src="/brand/brn-logo.png" alt="BRN Express Transporte & Logística" />
+          <img src="/brand/brn-logo-small.png" alt="BRN Express Transporte & Logística" />
         </a>
         <nav className="desktop-nav" aria-label="Navegação principal">
           {navItems.map(([label, href]) => (
@@ -316,7 +316,19 @@ export default function Home() {
           <span />
           <span />
         </button>
+        <div
+          className={`mobile-backdrop ${menuOpen ? "open" : ""}`}
+          onClick={() => setMenuOpen(false)}
+        />
         <div className={`mobile-panel ${menuOpen ? "open" : ""}`}>
+          <button
+            className="mobile-close"
+            type="button"
+            aria-label="Fechar menu"
+            onClick={() => setMenuOpen(false)}
+          >
+            ×
+          </button>
           {navItems.map(([label, href]) => (
             <a key={href} href={href} onClick={() => setMenuOpen(false)}>
               {label}
@@ -331,7 +343,8 @@ export default function Home() {
       <section id="inicio" className="hero" aria-label="BRN Express">
         <img
           className="hero-bg"
-          src="/brand/brn-hero.png"
+          src="/brand/brn-hero.jpg"
+          fetchPriority="high"
           alt="Operação logística com van, caixas e carga refrigerada"
         />
         <div className="hero-overlay" />
@@ -379,7 +392,7 @@ export default function Home() {
           {services.map((service) => (
             <article className="service-card" key={service.title}>
               <div className="service-visual">
-                <img src={service.image} alt={`${service.title} da BRN Express`} />
+                <img src={service.image} alt={`${service.title} da BRN Express`} loading="lazy" />
                 <span className="service-icon" aria-hidden="true">
                   <service.Icon size={22} strokeWidth={2.2} />
                 </span>
@@ -442,7 +455,7 @@ export default function Home() {
           {projects.map((project) => (
             <article className="project-card" key={project.title}>
               <div className="project-visual">
-                <img src={project.image} alt={`${project.title} da BRN Express`} />
+                <img src={project.image} alt={`${project.title} da BRN Express`} loading="lazy" />
               </div>
               <div>
                 <h3>{project.title}</h3>
@@ -494,9 +507,9 @@ export default function Home() {
 
       <section id="sobre" className="authority-block">
         <div className="authority-image">
-          <img src="/brand/brn-hero.png" alt="Equipe logística preparando carga para entrega" />
+          <img src="/brand/brn-hero.jpg" alt="Equipe logística preparando carga para entrega" loading="lazy" />
           <div className="badge-card">
-            <img src="/brand/brn-logo.png" alt="" />
+            <img src="/brand/brn-logo-small.png" alt="" loading="lazy" />
             <span>Transporte & Logística</span>
           </div>
         </div>
@@ -533,7 +546,7 @@ export default function Home() {
         </div>
         <div className="client-proof-grid">
           <aside className="client-proof-panel">
-            <img src="/brand/brn-logo.png" alt="BRN Express Transporte & Logística" />
+            <img src="/brand/brn-logo-small.png" alt="BRN Express Transporte & Logística" loading="lazy" />
             <h3>Credibilidade começa no cuidado com cada entrega.</h3>
             <p>
               Transporte para segmentos que não podem depender de improviso:
@@ -694,7 +707,7 @@ export default function Home() {
       <footer className="footer">
         <div className="footer-grid">
           <div>
-            <img src="/brand/brn-logo.png" alt="BRN Express Transporte & Logística" />
+            <img src="/brand/brn-logo-small.png" alt="BRN Express Transporte & Logística" loading="lazy" />
             <p>
               Transporte e logística para empresas que precisam de entrega
               expressa, cuidado com a carga e atendimento comercial direto.
