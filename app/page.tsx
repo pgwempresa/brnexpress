@@ -444,8 +444,9 @@ export default function Home() {
       <section id="projetos" className="dark-section">
         <div className="section-heading invert">
           <p className="eyebrow">Especialidades</p>
-          <h2>
-            Transporte aplicado em operações de <strong>prazo, cuidado e controle</strong>
+          <h2 style={{ color: "#ffffff" }}>
+            Transporte aplicado em operações de{" "}
+            <strong style={{ color: "var(--red)" }}>prazo, cuidado e controle</strong>
           </h2>
           <p>
             A BRN Express atende empresas que precisam transformar logística em
