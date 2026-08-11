@@ -238,6 +238,7 @@ const faqs = [
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [cookieBanner, setCookieBanner] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -245,6 +246,15 @@ export default function Home() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    setCookieBanner(localStorage.getItem("brn-cookie-consent") === null);
+  }, []);
+
+  const handleCookieChoice = (choice: "accepted" | "declined") => {
+    localStorage.setItem("brn-cookie-consent", choice);
+    setCookieBanner(false);
+  };
 
   useEffect(() => {
     const targets = document.querySelectorAll<HTMLElement>(
@@ -314,27 +324,29 @@ export default function Home() {
           <span />
           <span />
         </button>
-        <div
-          className={`mobile-backdrop ${menuOpen ? "open" : ""}`}
-          onClick={() => setMenuOpen(false)}
-        />
-        <div className={`mobile-panel ${menuOpen ? "open" : ""}`}>
-          <button
-            className="mobile-close"
-            type="button"
-            aria-label="Fechar menu"
-            onClick={() => setMenuOpen(false)}
-          >
-            ×
-          </button>
-          {navItems.map(([label, href]) => (
-            <a key={href} href={href} onClick={() => setMenuOpen(false)}>
-              {label}
-            </a>
-          ))}
-          <a href={whatsappUrl} target="_blank" rel="noreferrer">QUERO UMA COTAÇÃO <ArrowRight size={18} /></a>
-        </div>
       </header>
+      <div
+        className={`mobile-backdrop ${menuOpen ? "open" : ""}`}
+        onClick={() => setMenuOpen(false)}
+      />
+      <div className={`mobile-panel ${menuOpen ? "open" : ""}`}>
+        <button
+          className="mobile-close"
+          type="button"
+          aria-label="Fechar menu"
+          onClick={() => setMenuOpen(false)}
+        >
+          ×
+        </button>
+        {navItems.map(([label, href]) => (
+          <a key={href} href={href} onClick={() => setMenuOpen(false)}>
+            {label}
+          </a>
+        ))}
+        <a href={whatsappUrl} target="_blank" rel="noreferrer">
+          QUERO UMA COTAÇÃO <ArrowRight size={18} />
+        </a>
+      </div>
 
       <section id="inicio" className="hero" aria-label="BRN Express">
         <img
@@ -730,6 +742,26 @@ export default function Home() {
           <span>Política de Privacidade · Termos de Uso</span>
         </div>
       </footer>
+
+      {cookieBanner && (
+        <div className="cookie-banner" role="dialog" aria-label="Política de cookies">
+          <div>
+            <strong>Política de cookies</strong>
+            <p>
+              Usamos cookies para melhorar sua experiência, entender o uso do
+              site e facilitar o contato com a BRN Express.
+            </p>
+          </div>
+          <div className="cookie-actions">
+            <button type="button" onClick={() => handleCookieChoice("declined")}>
+              Recusar
+            </button>
+            <button type="button" onClick={() => handleCookieChoice("accepted")}>
+              Aceitar cookies
+            </button>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
