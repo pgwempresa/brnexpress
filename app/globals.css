@@ -658,22 +658,35 @@ textarea {
 
 .dark-section {
   background:
-    linear-gradient(135deg, rgba(7, 24, 67, 0.94), rgba(7, 24, 67, 0.98)),
-    url("/brand/brn-hero.jpg") center/cover;
+    radial-gradient(circle at 16% 8%, rgba(16, 185, 83, 0.08), transparent 28%),
+    radial-gradient(circle at 88% 12%, rgba(238, 28, 37, 0.07), transparent 25%),
+    linear-gradient(180deg, #f7f9fc 0%, #edf2f9 100%);
   padding: clamp(82px, 9vw, 132px) clamp(20px, 6vw, 84px);
 }
 
-.section-heading.invert h2,
-.section-heading.invert p:not(.eyebrow) {
-  color: var(--white);
+.section-heading.invert h2 {
+  color: var(--ink);
 }
 
 .section-heading.invert p:not(.eyebrow) {
-  color: rgba(255, 255, 255, 0.74);
+  color: var(--muted);
 }
 
 .section-heading.invert strong {
-  color: var(--red);
+  color: var(--navy-2);
+  position: relative;
+}
+
+.section-heading.invert strong::after {
+  background: rgba(238, 28, 37, 0.18);
+  border-radius: 999px;
+  bottom: 0.06em;
+  content: "";
+  height: 0.22em;
+  left: 0;
+  position: absolute;
+  right: 0;
+  z-index: -1;
 }
 
 .project-grid {
@@ -681,11 +694,11 @@ textarea {
 }
 
 .project-card {
-  background: rgba(255, 255, 255, 0.09);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(214, 221, 235, 0.95);
   border-radius: 18px;
-  box-shadow: 0 22px 58px rgba(0, 0, 0, 0.18);
-  color: var(--white);
+  box-shadow: 0 20px 54px rgba(13, 23, 48, 0.09);
+  color: var(--ink);
   overflow: hidden;
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
@@ -708,7 +721,7 @@ textarea {
 
 .project-card p,
 .project-card li {
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--muted);
 }
 
 .project-card ul,
