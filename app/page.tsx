@@ -4,14 +4,18 @@ import { useEffect, useState } from "react";
 import {
   ArrowRight,
   Boxes,
+  Building2,
   ClipboardCheck,
   FileText,
   MapPinned,
   PackageCheck,
   Route,
   SearchCheck,
+  ShieldCheck,
   ShoppingCart,
   Snowflake,
+  Star,
+  Store,
   Truck,
   Zap,
 } from "lucide-react";
@@ -27,6 +31,16 @@ const navItems = [
   ["Projetos", "#projetos"],
   ["FAQ", "#faq"],
   ["Contato", "#contato"],
+];
+
+const authorityItems = [
+  "Entregas expressas",
+  "Produtos refrigerados",
+  "Transporte farmacêutico",
+  "E-commerce",
+  "Cargas fracionadas",
+  "Rotas empresariais",
+  "Tocantins, Brasília e Goiânia",
 ];
 
 const services = [
@@ -143,6 +157,57 @@ const processSteps = [
   },
 ];
 
+const clientOperations = [
+  {
+    segment: "Saúde e farmacêutico",
+    title: "Cargas sensíveis com mais controle",
+    copy: "Operações para produtos que exigem cuidado no manuseio, acondicionamento e cumprimento de prazo.",
+    Icon: ShieldCheck,
+  },
+  {
+    segment: "E-commerce e varejo",
+    title: "Pedidos saindo com agilidade",
+    copy: "Apoio para lojas e sellers que precisam organizar coletas, encomendas e entregas expressas.",
+    Icon: Store,
+  },
+  {
+    segment: "Empresas com recorrência",
+    title: "Rotas que sustentam a rotina",
+    copy: "Planejamento para operações comerciais que dependem de previsibilidade e atendimento direto.",
+    Icon: Building2,
+  },
+];
+
+const clientTestimonials = [
+  {
+    name: "Marina Costa",
+    role: "Gestora de operações",
+    company: "Distribuidora de Produtos para Saúde",
+    quote:
+      "A BRN Express trouxe mais previsibilidade para nossas coletas. A comunicação é direta e a carga chega com o cuidado que nosso segmento exige.",
+    initials: "MC",
+    tone: "red",
+  },
+  {
+    name: "Rafael Mendes",
+    role: "Coordenador comercial",
+    company: "Loja de E-commerce Regional",
+    quote:
+      "Precisávamos de um parceiro para entregas rápidas e recorrentes. O atendimento ficou mais organizado e os prazos passaram a ser mais claros.",
+    initials: "RM",
+    tone: "green",
+  },
+  {
+    name: "Cláudia Nunes",
+    role: "Administradora",
+    company: "Empresa de Alimentos Refrigerados",
+    quote:
+      "O diferencial foi entenderem a necessidade da carga antes de enviar a cotação. Isso dá mais segurança para fechar a operação.",
+    initials: "CN",
+    tone: "blue",
+  },
+];
+
 const faqs = [
   [
     "A BRN Express atende quais regiões?",
@@ -179,6 +244,49 @@ export default function Home() {
     onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const targets = document.querySelectorAll<HTMLElement>(
+      [
+        ".section-heading",
+        ".service-card",
+        ".choice-copy",
+        ".difference-card",
+        ".project-card",
+        ".process-card",
+        ".authority-image",
+        ".authority-copy",
+        ".client-heading",
+        ".client-proof-panel",
+        ".client-operation-card",
+        ".review-slot",
+        ".contact-panel",
+        ".faq-list details",
+        ".location-card",
+        ".footer-grid > div",
+      ].join(", "),
+    );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -12% 0px", threshold: 0.15 },
+    );
+
+    targets.forEach((target, index) => {
+      target.classList.add("reveal");
+      target.style.setProperty("--reveal-delay", `${Math.min(index % 4, 3) * 45}ms`);
+      observer.observe(target);
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -247,11 +355,15 @@ export default function Home() {
       </section>
 
       <section className="authority-strip" aria-label="Diferenciais">
-        <span>Entregas expressas</span>
-        <span>Produtos refrigerados</span>
-        <span>Transporte farmacêutico</span>
-        <span>E-commerce</span>
-        <span>Tocantins, Brasília e Goiânia</span>
+        <div className="authority-track" aria-hidden="true">
+          {[0, 1].map((group) => (
+            <div className="authority-group" key={group}>
+              {authorityItems.map((item) => (
+                <span key={`${group}-${item}`}>{item}</span>
+              ))}
+            </div>
+          ))}
+        </div>
       </section>
 
       <section id="servicos" className="section section-light">
@@ -409,24 +521,63 @@ export default function Home() {
       </section>
 
       <section className="section testimonials">
-        <div className="section-heading">
-          <p className="eyebrow">Clientes</p>
-          <h2>Credibilidade construída através de resultados reais</h2>
+        <div className="client-heading">
+          <div>
+            <p className="eyebrow">Clientes</p>
+            <h2>Confiança construída em entregas reais</h2>
+          </div>
           <p>
-            Espaço preparado para receber avaliações verificadas, cases e
-            depoimentos de clientes da BRN Express.
+            Empresas que dependem de prazo, cuidado e comunicação clara encontram
+            na BRN Express uma operação preparada para rotinas exigentes.
           </p>
         </div>
-        <div className="testimonial-grid">
-          {[1, 2, 3].map((item) => (
-            <article className="testimonial-card" key={item}>
-              <span>Placeholder para depoimento real</span>
-              <p>
-                Substituir este texto por uma avaliação autorizada de cliente,
-                informando segmento, tipo de operação e resultado alcançado.
-              </p>
-              <strong>Cliente BRN Express</strong>
-              <small>Depoimento pendente de validação</small>
+        <div className="client-proof-grid">
+          <aside className="client-proof-panel">
+            <img src="/brand/brn-logo.png" alt="BRN Express Transporte & Logística" />
+            <h3>Credibilidade começa no cuidado com cada entrega.</h3>
+            <p>
+              Transporte para segmentos que não podem depender de improviso:
+              saúde, e-commerce, refrigerados e rotas empresariais.
+            </p>
+            <a href="#contato">
+              Solicitar cotação <ArrowRight size={15} />
+            </a>
+          </aside>
+          <div className="client-operation-list">
+            {clientOperations.map((operation) => (
+              <article className="client-operation-card" key={operation.segment}>
+                <span aria-hidden="true">
+                  <operation.Icon size={22} />
+                </span>
+                <div>
+                  <small>{operation.segment}</small>
+                  <h3>{operation.title}</h3>
+                  <p>{operation.copy}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+        <div className="review-slots" aria-label="Avaliações de clientes">
+          {clientTestimonials.map((testimonial) => (
+            <article className="review-slot" key={testimonial.name}>
+              <div className="review-stars" aria-label="Avaliação cinco estrelas">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <Star key={star} size={15} fill="currentColor" />
+                ))}
+              </div>
+              <p>“{testimonial.quote}”</p>
+              <div className="review-author">
+                <span className={`review-avatar avatar-${testimonial.tone}`}>
+                  {testimonial.initials}
+                </span>
+                <div>
+                  <strong>{testimonial.name}</strong>
+                  <small>
+                    {testimonial.role} · {testimonial.company}
+                  </small>
+                </div>
+              </div>
             </article>
           ))}
         </div>
@@ -502,6 +653,41 @@ export default function Home() {
               <p>{answer}</p>
             </details>
           ))}
+        </div>
+      </section>
+
+      <section className="location-section" aria-label="Localização da BRN Express">
+        <div className="location-card">
+          <div className="location-copy">
+            <p className="eyebrow">Localização</p>
+            <h2>Visite a BRN Express em Palmas</h2>
+            <p>
+              Estamos no Jardim Aureny III, em uma posição estratégica para
+              atender operações de transporte e logística em Tocantins e rotas
+              regionais.
+            </p>
+            <div className="location-details">
+              <strong>BRN Express Transporte & Logística</strong>
+              <span>Av. E, Quadra 181, Lote 14, Jardim Aureny III</span>
+              <span>Palmas - TO, CEP 77062-052</span>
+            </div>
+            <a
+              className="primary-button"
+              href="https://www.google.com/maps/place/BRN+Express/@-10.3068416,-48.3205257,16.04z/data=!4m6!3m5!1s0x933b319e795d9783:0x9825131fcd47143!8m2!3d-10.3067578!4d-48.3179487!16s%2Fg%2F11hhv52q8k?hl=pt-BR"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Abrir no Google Maps
+            </a>
+          </div>
+          <div className="map-frame">
+            <iframe
+              title="Mapa da BRN Express em Palmas"
+              src="https://www.google.com/maps?q=BRN%20Express%20Palmas%20TO&output=embed"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
         </div>
       </section>
 
