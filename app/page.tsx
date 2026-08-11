@@ -1,6 +1,20 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import {
+  ArrowRight,
+  Boxes,
+  ClipboardCheck,
+  FileText,
+  MapPinned,
+  PackageCheck,
+  Route,
+  SearchCheck,
+  ShoppingCart,
+  Snowflake,
+  Truck,
+  Zap,
+} from "lucide-react";
 
 const whatsappUrl =
   "https://wa.me/5561998266953?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20BRN%20Express%20e%20quero%20solicitar%20uma%20cota%C3%A7%C3%A3o.";
@@ -20,31 +34,43 @@ const services = [
     title: "Transporte farmacêutico",
     copy: "Operação dedicada para cargas sensíveis, com cuidado no manuseio e previsibilidade no trajeto.",
     benefit: "Mais segurança para produtos de alto valor e exigência.",
+    image: "/brand/service-farmaceutico.png",
+    Icon: PackageCheck,
   },
   {
     title: "Produtos refrigerados",
     copy: "Soluções para cargas que exigem controle, acondicionamento adequado e atenção em cada etapa.",
     benefit: "Preservação da integridade até a entrega.",
+    image: "/brand/service-refrigerado.png",
+    Icon: Snowflake,
   },
   {
     title: "E-commerce e encomendas",
     copy: "Coletas, distribuição e entregas expressas para empresas que precisam girar pedidos com agilidade.",
     benefit: "Cliente final atendido com rapidez e rastreabilidade operacional.",
+    image: "/brand/service-ecommerce.png",
+    Icon: ShoppingCart,
   },
   {
     title: "Entrega rápida",
     copy: "Atendimento para demandas urgentes, documentos, malotes e cargas leves com prioridade de execução.",
     benefit: "Menos espera entre coleta e destino.",
+    image: "/brand/service-entrega-rapida.png",
+    Icon: Zap,
   },
   {
     title: "Cargas fracionadas",
     copy: "Transporte sob medida para volumes variados, otimizando rotas sem abrir mão do cuidado.",
     benefit: "Eficiência de custo para remessas recorrentes.",
+    image: "/brand/service-carga-fracionada.png",
+    Icon: Boxes,
   },
   {
     title: "Rotas empresariais",
     copy: "Planejamento de coletas e entregas para operações comerciais com frequência definida.",
     benefit: "Mais previsibilidade para sua rotina logística.",
+    image: "/brand/service-rotas.png",
+    Icon: Route,
   },
 ];
 
@@ -62,26 +88,59 @@ const projects = [
     title: "Distribuição para saúde",
     copy: "Transporte com atenção redobrada para produtos farmacêuticos, insumos e cargas sensíveis.",
     bullets: ["Manuseio criterioso", "Coletas programadas", "Acompanhamento comercial"],
+    image: "/brand/service-farmaceutico.png",
   },
   {
     title: "Fluxo para e-commerce",
     copy: "Apoio logístico para lojas, sellers e operações que precisam cumprir prazos de entrega.",
     bullets: ["Entregas expressas", "Roteirização por demanda", "Suporte a picos de pedido"],
+    image: "/brand/service-ecommerce.png",
   },
   {
     title: "Carga refrigerada",
     copy: "Soluções para mercadorias que precisam de acondicionamento adequado e operação disciplinada.",
     bullets: ["Cuidado térmico", "Planejamento de rota", "Entrega com responsabilidade"],
+    image: "/brand/service-refrigerado.png",
   },
 ];
 
 const processSteps = [
-  ["01", "Primeiro contato", "Entendemos origem, destino, volume, prazo e características da carga."],
-  ["02", "Diagnóstico", "A equipe avalia a melhor solução para a necessidade operacional."],
-  ["03", "Cotação", "Você recebe uma proposta objetiva, com escopo claro para a entrega."],
-  ["04", "Coleta", "A carga é recebida com conferência e cuidado no manuseio."],
-  ["05", "Transporte", "A operação segue a rota planejada para cumprir o prazo combinado."],
-  ["06", "Entrega", "Finalizamos com acompanhamento e comunicação até o destino."],
+  {
+    number: "1",
+    title: "Entendimento da necessidade",
+    copy: "Analisamos origem, destino, prazo, volume e exigências da carga.",
+    Icon: SearchCheck,
+  },
+  {
+    number: "2",
+    title: "Diagnóstico logístico",
+    copy: "Avaliamos rota, tipo de veículo, manuseio e prioridade da entrega.",
+    Icon: ClipboardCheck,
+  },
+  {
+    number: "3",
+    title: "Cotação objetiva",
+    copy: "Você recebe uma proposta clara para aprovar sem complicação.",
+    Icon: FileText,
+  },
+  {
+    number: "4",
+    title: "Coleta programada",
+    copy: "Organizamos a retirada com conferência e cuidado operacional.",
+    Icon: PackageCheck,
+  },
+  {
+    number: "5",
+    title: "Transporte monitorado",
+    copy: "A carga segue a rota planejada com comunicação durante a operação.",
+    Icon: Truck,
+  },
+  {
+    number: "6",
+    title: "Entrega com acompanhamento",
+    copy: "Finalizamos no destino e mantemos suporte para operações recorrentes.",
+    Icon: MapPinned,
+  },
 ];
 
 const faqs = [
@@ -205,14 +264,21 @@ export default function Home() {
           </p>
         </div>
         <div className="service-grid">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <article className="service-card" key={service.title}>
-              <div className={`service-visual visual-${index + 1}`} />
+              <div className="service-visual">
+                <img src={service.image} alt={`${service.title} da BRN Express`} />
+                <span className="service-icon" aria-hidden="true">
+                  <service.Icon size={22} strokeWidth={2.2} />
+                </span>
+              </div>
               <div className="card-body">
                 <h3>{service.title}</h3>
                 <p>{service.copy}</p>
                 <strong>{service.benefit}</strong>
-                <a href="#contato">Conheça a solução</a>
+                <a href="#contato">
+                  Conheça a solução <ArrowRight size={14} />
+                </a>
               </div>
             </article>
           ))}
@@ -261,9 +327,11 @@ export default function Home() {
           </p>
         </div>
         <div className="project-grid">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <article className="project-card" key={project.title}>
-              <div className={`project-visual project-${index + 1}`} />
+              <div className="project-visual">
+                <img src={project.image} alt={`${project.title} da BRN Express`} />
+              </div>
               <div>
                 <h3>{project.title}</h3>
                 <p>{project.copy}</p>
@@ -272,7 +340,9 @@ export default function Home() {
                     <li key={bullet}>{bullet}</li>
                   ))}
                 </ul>
-                <a href="#contato">Conhecer mais</a>
+                <a href="#contato">
+                  Conhecer mais <ArrowRight size={14} />
+                </a>
               </div>
             </article>
           ))}
@@ -284,7 +354,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section section-light">
+      <section className="section process-section">
         <div className="section-heading">
           <p className="eyebrow">Processo</p>
           <h2>Um processo estruturado para entregar com mais segurança</h2>
@@ -294,13 +364,19 @@ export default function Home() {
           </p>
         </div>
         <div className="process-grid">
-          {processSteps.map(([number, title, copy]) => (
-            <article className="process-card" key={number}>
-              <span>{number}</span>
-              <h3>{title}</h3>
-              <p>{copy}</p>
+          {processSteps.map((step) => (
+            <article className="process-card" key={step.number}>
+              <span className="process-number">{step.number}</span>
+              <step.Icon className="process-icon" size={24} strokeWidth={2} aria-hidden="true" />
+              <h3>{step.title}</h3>
+              <p>{step.copy}</p>
             </article>
           ))}
+        </div>
+        <div className="center">
+          <a className="primary-button" href="#contato">
+            Entender nosso processo
+          </a>
         </div>
       </section>
 
