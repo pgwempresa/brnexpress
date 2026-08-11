@@ -302,9 +302,7 @@ export default function Home() {
             </a>
           ))}
         </nav>
-        <a className="header-cta" href={whatsappUrl} target="_blank" rel="noreferrer">
-          Solicitar cotação
-        </a>
+        <a className="header-cta" href={whatsappUrl} target="_blank" rel="noreferrer">QUERO UMA COTAÇÃO <ArrowRight size={18} /></a>
         <button
           className="menu-toggle"
           type="button"
@@ -334,9 +332,7 @@ export default function Home() {
               {label}
             </a>
           ))}
-          <a href={whatsappUrl} target="_blank" rel="noreferrer">
-            Solicitar cotação
-          </a>
+          <a href={whatsappUrl} target="_blank" rel="noreferrer">QUERO UMA COTAÇÃO <ArrowRight size={18} /></a>
         </div>
       </header>
 
@@ -357,9 +353,7 @@ export default function Home() {
             Brasília e Goiânia.
           </p>
           <div className="hero-actions">
-            <a className="primary-button" href={whatsappUrl} target="_blank" rel="noreferrer">
-              Solicitar cotação
-            </a>
+            <a className="primary-button" href={whatsappUrl} target="_blank" rel="noreferrer">QUERO UMA COTAÇÃO <ArrowRight size={18} /></a>
             <a className="secondary-button" href="#servicos">
               Conhecer soluções
             </a>
@@ -409,9 +403,7 @@ export default function Home() {
           ))}
         </div>
         <div className="center">
-          <a className="primary-button" href={whatsappUrl} target="_blank" rel="noreferrer">
-            Solicitar cotação
-          </a>
+          <a className="primary-button" href={whatsappUrl} target="_blank" rel="noreferrer">QUERO UMA COTAÇÃO <ArrowRight size={18} /></a>
         </div>
       </section>
 
@@ -424,9 +416,7 @@ export default function Home() {
             atenção comercial, rotas bem alinhadas e cuidado com cargas que
             exigem mais responsabilidade.
           </p>
-          <a className="primary-button" href={whatsappUrl} target="_blank" rel="noreferrer">
-            Falar com a equipe
-          </a>
+          <a className="primary-button" href={whatsappUrl} target="_blank" rel="noreferrer">QUERO UMA COTAÇÃO <ArrowRight size={18} /></a>
         </div>
         <div className="difference-grid">
           {differences.map(([title, copy], index) => (
@@ -473,9 +463,7 @@ export default function Home() {
           ))}
         </div>
         <div className="center">
-          <a className="primary-button" href={whatsappUrl} target="_blank" rel="noreferrer">
-            Solicitar cotação
-          </a>
+          <a className="primary-button" href={whatsappUrl} target="_blank" rel="noreferrer">QUERO UMA COTAÇÃO <ArrowRight size={18} /></a>
         </div>
       </section>
 
@@ -527,9 +515,7 @@ export default function Home() {
             <li>Atendimento para entregas urgentes, programadas e recorrentes.</li>
             <li>Processo comercial direto para reduzir dúvidas antes da coleta.</li>
           </ul>
-          <a className="primary-button" href={whatsappUrl} target="_blank" rel="noreferrer">
-            Solicitar cotação
-          </a>
+          <a className="primary-button" href={whatsappUrl} target="_blank" rel="noreferrer">QUERO UMA COTAÇÃO <ArrowRight size={18} /></a>
         </div>
       </section>
 
@@ -553,7 +539,7 @@ export default function Home() {
               saúde, e-commerce, refrigerados e rotas empresariais.
             </p>
             <a href="#contato">
-              Solicitar cotação <ArrowRight size={15} />
+              QUERO UMA COTAÇÃO <ArrowRight size={18} />
             </a>
           </aside>
           <div className="client-operation-list">
@@ -648,7 +634,7 @@ export default function Home() {
               Mensagem
               <textarea name="mensagem" placeholder="Origem, destino, volume e prazo desejado" />
             </label>
-            <button type="submit">Solicitar cotação</button>
+            <button type="submit">QUERO UMA COTAÇÃO <ArrowRight size={18} /></button>
           </form>
         </div>
       </section>
