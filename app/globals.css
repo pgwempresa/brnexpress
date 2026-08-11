@@ -663,20 +663,25 @@ textarea {
   padding: clamp(82px, 9vw, 132px) clamp(20px, 6vw, 84px);
 }
 
-.section-heading.invert h2 {
-  color: #ffffff;
+.dark-section .section-heading.invert .eyebrow {
+  color: var(--red) !important;
 }
 
-.section-heading.invert p:not(.eyebrow) {
-  color: rgba(255, 255, 255, 0.78);
+.dark-section .section-heading.invert h2 {
+  color: #ffffff !important;
 }
 
-.section-heading.invert strong {
-  color: var(--red);
+.dark-section .section-heading.invert p:not(.eyebrow) {
+  color: rgba(255, 255, 255, 0.78) !important;
 }
 
-.section-heading.invert strong::after {
-  content: none;
+.dark-section .section-heading.invert strong {
+  color: var(--red) !important;
+}
+
+.dark-section .section-heading.invert strong::after {
+  content: none !important;
+  display: none !important;
 }
 
 .project-grid {
