@@ -8,6 +8,7 @@ import {
   ClipboardCheck,
   FileText,
   MapPinned,
+  MessageCircle,
   PackageCheck,
   Route,
   SearchCheck,
@@ -21,7 +22,7 @@ import {
 } from "lucide-react";
 
 const whatsappUrl =
-  "https://wa.me/5561998266953?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20BRN%20Express%20e%20quero%20solicitar%20uma%20cota%C3%A7%C3%A3o.";
+  "https://wa.me/5563991072966?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20BRN%20Express%20e%20quero%20solicitar%20uma%20cota%C3%A7%C3%A3o.";
 
 const navItems = [
   ["Início", "#inicio"],
@@ -444,9 +445,9 @@ export default function Home() {
       <section id="projetos" className="dark-section">
         <div className="section-heading invert">
           <p className="eyebrow">Especialidades</p>
-          <h2 style={{ color: "#ffffff" }}>
-            Transporte aplicado em operações de{" "}
-            <strong style={{ color: "var(--red)" }}>prazo, cuidado e controle</strong>
+          <h2>
+            <span>Transporte aplicado em operações de</span>{" "}
+            <strong>prazo, cuidado e controle</strong>
           </h2>
           <p>
             A BRN Express atende empresas que precisam transformar logística em
@@ -607,7 +608,7 @@ export default function Home() {
             <div className="contact-list">
               <a href="tel:+556335715730">(63) 3571-5730</a>
               <a href={whatsappUrl} target="_blank" rel="noreferrer">
-                WhatsApp: (61) 99826-6953
+                WhatsApp: (63) 99107-2966
               </a>
               <a href="mailto:comercial@brnexpress.com.br">comercial@brnexpress.com.br</a>
               <span>Av. E, Quadra 181, Lote 14, Jardim Aureny III, Palmas - TO</span>
@@ -732,7 +733,7 @@ export default function Home() {
             <h3>Contato</h3>
             <a href="tel:+556335715730">(63) 3571-5730</a>
             <a href={whatsappUrl} target="_blank" rel="noreferrer">
-              (61) 99826-6953
+              (63) 99107-2966
             </a>
             <a href="mailto:comercial@brnexpress.com.br">comercial@brnexpress.com.br</a>
             <span>Palmas - TO</span>
@@ -763,6 +764,15 @@ export default function Home() {
           </div>
         </div>
       )}
+      <a
+        className="whatsapp-float"
+        href={whatsappUrl}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Chamar a BRN Express no WhatsApp"
+      >
+        <MessageCircle size={24} />
+      </a>
     </main>
   );
 }
