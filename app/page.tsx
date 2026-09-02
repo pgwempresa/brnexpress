@@ -386,6 +386,41 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="pharma-section" aria-labelledby="pharma-title">
+        <div className="pharma-visual">
+          <img
+            src="/brand/service-farmaceutico.jpg"
+            alt="Operação de transporte farmacêutico da BRN Express"
+            loading="lazy"
+          />
+          <div className="pharma-seal">
+            <ShieldCheck size={26} strokeWidth={2.2} />
+            <span>Homologada pela Anvisa</span>
+          </div>
+        </div>
+        <div className="pharma-copy">
+          <p className="eyebrow">Transporte farmacêutico</p>
+          <h2 id="pharma-title">Referência em cargas farmacêuticas</h2>
+          <p>
+            A BRN Express é especializada no transporte de medicamentos,
+            insumos e produtos sensíveis, com uma operação preparada para as
+            exigências do setor farmacêutico.
+          </p>
+          <div className="pharma-certification">
+            <ShieldCheck size={22} strokeWidth={2.2} aria-hidden="true" />
+            <div>
+              <strong>Empresa homologada pela Anvisa</strong>
+              <span>
+                Mais segurança, conformidade e cuidado em todas as etapas da entrega.
+              </span>
+            </div>
+          </div>
+          <a className="primary-button" href={whatsappUrl} target="_blank" rel="noreferrer">
+            QUERO UMA COTAÇÃO <ArrowRight size={18} />
+          </a>
+        </div>
+      </section>
+
       <section id="servicos" className="section section-light">
         <div className="section-heading">
           <p className="eyebrow">Soluções</p>
