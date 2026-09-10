@@ -49,42 +49,42 @@ const services = [
     title: "Transporte farmacêutico",
     copy: "Operação dedicada para cargas sensíveis, com cuidado no manuseio e previsibilidade no trajeto.",
     benefit: "Mais segurança para produtos de alto valor e exigência.",
-    image: "/brand/service-farmaceutico.jpg",
+    image: "/brand/service-farmaceutico.webp",
     Icon: PackageCheck,
   },
   {
     title: "Produtos refrigerados",
     copy: "Soluções para cargas que exigem controle, acondicionamento adequado e atenção em cada etapa.",
     benefit: "Preservação da integridade até a entrega.",
-    image: "/brand/service-refrigerado.jpg",
+    image: "/brand/service-refrigerado.webp",
     Icon: Snowflake,
   },
   {
     title: "E-commerce e encomendas",
     copy: "Coletas, distribuição e entregas expressas para empresas que precisam girar pedidos com agilidade.",
     benefit: "Cliente final atendido com rapidez e rastreabilidade operacional.",
-    image: "/brand/service-ecommerce.jpg",
+    image: "/brand/service-ecommerce.webp",
     Icon: ShoppingCart,
   },
   {
     title: "Entrega rápida",
     copy: "Atendimento para demandas urgentes, documentos, malotes e cargas leves com prioridade de execução.",
     benefit: "Menos espera entre coleta e destino.",
-    image: "/brand/service-entrega-rapida.jpg",
+    image: "/brand/service-entrega-rapida.webp",
     Icon: Zap,
   },
   {
     title: "Cargas fracionadas",
     copy: "Transporte sob medida para volumes variados, otimizando rotas sem abrir mão do cuidado.",
     benefit: "Eficiência de custo para remessas recorrentes.",
-    image: "/brand/service-carga-fracionada.jpg",
+    image: "/brand/service-carga-fracionada.webp",
     Icon: Boxes,
   },
   {
     title: "Rotas empresariais",
     copy: "Planejamento de coletas e entregas para operações comerciais com frequência definida.",
     benefit: "Mais previsibilidade para sua rotina logística.",
-    image: "/brand/service-rotas.jpg",
+    image: "/brand/service-rotas.webp",
     Icon: Route,
   },
 ];
@@ -103,19 +103,19 @@ const projects = [
     title: "Distribuição para saúde",
     copy: "Transporte com atenção redobrada para produtos farmacêuticos, insumos e cargas sensíveis.",
     bullets: ["Manuseio criterioso", "Coletas programadas", "Acompanhamento comercial"],
-    image: "/brand/service-farmaceutico.jpg",
+    image: "/brand/service-farmaceutico.webp",
   },
   {
     title: "Fluxo para e-commerce",
     copy: "Apoio logístico para lojas, sellers e operações que precisam cumprir prazos de entrega.",
     bullets: ["Entregas expressas", "Roteirização por demanda", "Suporte a picos de pedido"],
-    image: "/brand/service-ecommerce.jpg",
+    image: "/brand/service-ecommerce.webp",
   },
   {
     title: "Carga refrigerada",
     copy: "Soluções para mercadorias que precisam de acondicionamento adequado e operação disciplinada.",
     bullets: ["Cuidado térmico", "Planejamento de rota", "Entrega com responsabilidade"],
-    image: "/brand/service-refrigerado.jpg",
+    image: "/brand/service-refrigerado.webp",
   },
 ];
 
@@ -352,7 +352,7 @@ export default function Home() {
       <section id="inicio" className="hero" aria-label="BRN Express">
         <img
           className="hero-bg"
-          src="/brand/brn-hero.jpg"
+          src="/brand/brn-hero.webp"
           fetchPriority="high"
           alt="Operação logística com van, caixas e carga refrigerada"
         />
@@ -389,7 +389,7 @@ export default function Home() {
       <section className="pharma-section" aria-labelledby="pharma-title">
         <div className="pharma-visual">
           <img
-            src="/brand/service-farmaceutico.jpg"
+            src="/brand/service-farmaceutico.webp"
             alt="Operação de transporte farmacêutico da BRN Express"
             loading="lazy"
           />
@@ -544,7 +544,7 @@ export default function Home() {
 
       <section id="sobre" className="authority-block">
         <div className="authority-image">
-          <img src="/brand/brn-hero.jpg" alt="Equipe logística preparando carga para entrega" loading="lazy" />
+          <img src="/brand/brn-hero.webp" alt="Equipe logística preparando carga para entrega" loading="lazy" />
           <div className="badge-card">
             <img src="/brand/brn-logo-small.png" alt="" loading="lazy" />
             <span>Transporte & Logística</span>

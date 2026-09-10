@@ -773,7 +773,7 @@ textarea {
 .dark-section {
   background:
     linear-gradient(135deg, rgba(7, 24, 67, 0.94), rgba(7, 24, 67, 0.98)),
-    url("/brand/brn-hero.jpg") center/cover;
+    url("/brand/brn-hero.webp") center/cover;
   padding: clamp(82px, 9vw, 132px) clamp(20px, 6vw, 84px);
 }
 
@@ -1087,7 +1087,7 @@ textarea {
 .client-proof-panel {
   background:
     linear-gradient(140deg, rgba(7, 24, 67, 0.94), rgba(11, 35, 94, 0.92)),
-    url("/brand/service-rotas.jpg") center/cover;
+    url("/brand/service-rotas.webp") center/cover;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 22px;
   box-shadow: var(--deep-shadow);
@@ -1314,7 +1314,7 @@ textarea {
 .contact-info {
   background:
     linear-gradient(135deg, rgba(7, 24, 67, 0.95), rgba(11, 35, 94, 0.94)),
-    url("/brand/brn-hero.jpg") center/cover;
+    url("/brand/brn-hero.webp") center/cover;
   color: var(--white);
   padding: clamp(34px, 5vw, 58px);
   position: relative;
