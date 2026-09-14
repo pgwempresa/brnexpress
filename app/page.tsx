@@ -287,6 +287,13 @@ export default function Home() {
   };
 
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const compactViewport = window.matchMedia("(max-width: 720px)").matches;
+
+    if (prefersReducedMotion || compactViewport) {
+      return;
+    }
+
     const targets = document.querySelectorAll<HTMLElement>(
       [
         ".section-heading",
