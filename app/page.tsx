@@ -6,7 +6,9 @@ import {
   Boxes,
   Building2,
   ClipboardCheck,
+  Eye,
   FileText,
+  HeartHandshake,
   MapPinned,
   MessageCircle,
   PackageCheck,
@@ -17,6 +19,7 @@ import {
   Snowflake,
   Star,
   Store,
+  Target,
   Truck,
   Zap,
 } from "lucide-react";
@@ -27,7 +30,7 @@ const whatsappUrl =
 const navItems = [
   ["Início", "#inicio"],
   ["Serviços", "#servicos"],
-  ["Sobre", "#sobre"],
+  ["Institucional", "#institucional"],
   ["Diferenciais", "#diferenciais"],
   ["Projetos", "#projetos"],
   ["FAQ", "#faq"],
@@ -42,6 +45,70 @@ const authorityItems = [
   "Cargas fracionadas",
   "Rotas empresariais",
   "Tocantins, Brasília e Goiânia",
+];
+
+const institutionalTabs = [
+  {
+    id: "visao",
+    label: "Visão",
+    title: "Ser reconhecida pela responsabilidade e eficiência logística",
+    copy:
+      "Trabalhar com visão de parceria de negócios, buscando destaque pela responsabilidade, eficiência e qualidade na prestação dos serviços de transporte e logística.",
+    Icon: Eye,
+    points: ["Parceria com clientes", "Eficiência operacional", "Responsabilidade em cada rota"],
+  },
+  {
+    id: "missao",
+    label: "Missão",
+    title: "Atuar com ética, transparência e melhoria contínua",
+    copy:
+      "Atuar no mercado de forma ética, transparente e responsável, mantendo foco na excelência, na qualidade do negócio e na satisfação das necessidades dos parceiros.",
+    Icon: Target,
+    points: ["Ética nas relações", "Excelência no atendimento", "Satisfação dos parceiros"],
+  },
+  {
+    id: "valores",
+    label: "Valores",
+    title: "Qualidade, segurança, transparência e compromisso",
+    copy:
+      "Ofertar o melhor serviço de logística com valorização das pessoas, postura íntegra nos negócios e foco em resultados que gerem satisfação pela escolha da BRN Express.",
+    Icon: Star,
+    points: ["Qualidade", "Segurança", "Compromisso com prazos"],
+  },
+  {
+    id: "fazemos",
+    label: "O que fazemos",
+    title: "Transporte & Logística com foco em qualidade e resultado",
+    copy:
+      "Prestamos serviços de transporte e logística para empresas que precisam de operação organizada, retirada cuidadosa e entrega segura no destino.",
+    Icon: Truck,
+    points: ["Coletas e entregas", "Rotas empresariais", "Cargas sensíveis e recorrentes"],
+  },
+  {
+    id: "qualidades",
+    label: "Qualidades",
+    title: "Uma operação criada para conquistar e fidelizar parceiros",
+    copy:
+      "A BRN Express busca relações duradouras. Mais do que prestar transporte, trabalha para captar parceiros, fidelizar clientes e preservar padrões de qualidade em todo o processo.",
+    Icon: HeartHandshake,
+    points: ["Parceria real", "Padrão em todos os processos", "Cuidado da retirada à entrega"],
+  },
+  {
+    id: "risco",
+    label: "Risco",
+    title: "Gerenciamento de risco em tempo integral",
+    copy:
+      "A empresa trabalha com monitoramento, fiscalização, treinamento, certificação Anvisa e recursos de segurança conforme a exigência operacional de cada embarcador.",
+    Icon: ShieldCheck,
+    points: ["Omnilink e Sascar", "Certificação Anvisa", "Escolta armada sob demanda"],
+  },
+];
+
+const institutionalQualities = [
+  ["Qualidade", "Padrões claros desde a retirada até a entrega."],
+  ["Segurança", "Monitoramento e atenção para cargas sensíveis."],
+  ["Transparência", "Comunicação objetiva durante a operação."],
+  ["Prazo", "Compromisso com os prazos estabelecidos."],
 ];
 
 const services = [
@@ -240,6 +307,7 @@ export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [cookieBanner, setCookieBanner] = useState(false);
+  const [activeInstitutionalTab, setActiveInstitutionalTab] = useState(institutionalTabs[0]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -268,6 +336,11 @@ export default function Home() {
         ".process-card",
         ".authority-image",
         ".authority-copy",
+        ".institutional-heading",
+        ".institutional-tabs",
+        ".institutional-panel",
+        ".institutional-quality-card",
+        ".risk-list",
         ".client-heading",
         ".client-proof-panel",
         ".client-operation-card",
@@ -418,6 +491,73 @@ export default function Home() {
           <a className="primary-button" href={whatsappUrl} target="_blank" rel="noreferrer">
             QUERO UMA COTAÇÃO <ArrowRight size={18} />
           </a>
+        </div>
+      </section>
+
+      <section id="institucional" className="institutional-section" aria-labelledby="institutional-title">
+        <div className="institutional-heading">
+          <p className="eyebrow">Institucional</p>
+          <h2 id="institutional-title">
+            A BRN Express nasceu para entregar <strong>qualidade, segurança e compromisso</strong>
+          </h2>
+          <p>
+            Uma operação construída para ser parceira dos clientes, com padrões
+            de qualidade em todos os processos do transporte, da retirada até a
+            entrega no destino.
+          </p>
+        </div>
+        <div className="institutional-shell">
+          <div className="institutional-tabs" role="tablist" aria-label="Conteúdo institucional da BRN Express">
+            {institutionalTabs.map((tab) => (
+              <button
+                key={tab.id}
+                type="button"
+                role="tab"
+                aria-selected={activeInstitutionalTab.id === tab.id}
+                className={activeInstitutionalTab.id === tab.id ? "active" : ""}
+                onClick={() => setActiveInstitutionalTab(tab)}
+              >
+                <tab.Icon size={18} strokeWidth={2.2} aria-hidden="true" />
+                {tab.label}
+              </button>
+            ))}
+          </div>
+          <article className="institutional-panel" role="tabpanel">
+            <div className="institutional-panel-icon" aria-hidden="true">
+              <activeInstitutionalTab.Icon size={34} strokeWidth={2} />
+            </div>
+            <div>
+              <span>{activeInstitutionalTab.label}</span>
+              <h3>{activeInstitutionalTab.title}</h3>
+              <p>{activeInstitutionalTab.copy}</p>
+              <ul>
+                {activeInstitutionalTab.points.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        </div>
+        <div className="institutional-bottom">
+          <div className="quality-grid">
+            {institutionalQualities.map(([title, copy]) => (
+              <article className="institutional-quality-card" key={title}>
+                <strong>{title}</strong>
+                <p>{copy}</p>
+              </article>
+            ))}
+          </div>
+          <div className="risk-list">
+            <p className="eyebrow">Gerenciamento de risco</p>
+            <h3>Controle para operações que exigem confiança</h3>
+            <div>
+              <span>Escolta armada conforme exigência</span>
+              <span>Treinamentos e fiscalizações</span>
+              <span>Informações e acompanhamento</span>
+              <span>Monitoramento Omnilink e Sascar</span>
+              <span>Atendimento em todo o Tocantins</span>
+            </div>
+          </div>
         </div>
       </section>
 
