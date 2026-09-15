@@ -14,10 +14,8 @@ import {
   Route,
   SearchCheck,
   ShieldCheck,
-  ShoppingCart,
   Snowflake,
   Star,
-  Store,
   Target,
   Truck,
   Zap,
@@ -40,7 +38,7 @@ const authorityItems = [
   "Entregas expressas",
   "Produtos refrigerados",
   "Transporte farmacêutico",
-  "E-commerce",
+  "Cargas empresariais",
   "Cargas fracionadas",
   "Rotas empresariais",
   "Tocantins, Brasília e Goiânia",
@@ -89,11 +87,11 @@ const services = [
     Icon: Snowflake,
   },
   {
-    title: "E-commerce e encomendas",
-    copy: "Coletas, distribuição e entregas expressas para empresas que precisam girar pedidos com agilidade.",
-    benefit: "Cliente final atendido com rapidez e rastreabilidade operacional.",
-    image: "/brand/service-ecommerce.webp",
-    Icon: ShoppingCart,
+    title: "Cargas empresariais",
+    copy: "Coletas, distribuição e entregas para empresas que precisam de regularidade, cuidado e comunicação clara.",
+    benefit: "Operação mais previsível para rotinas comerciais.",
+    image: "/brand/service-cargas-empresariais.webp",
+    Icon: Building2,
   },
   {
     title: "Entrega rápida",
@@ -119,7 +117,7 @@ const services = [
 ];
 
 const differences = [
-  ["Especialização", "Atuação com farmacêuticos, e-commerce e refrigerados."],
+  ["Especialização", "Atuação com farmacêuticos, refrigerados e cargas empresariais."],
   ["Rotas estratégicas", "Presença operacional em Tocantins, Brasília e Goiânia."],
   ["Atendimento direto", "Cotação e alinhamento com quem entende da operação."],
   ["Cuidado com a carga", "Processo pensado para reduzir riscos no manuseio."],
@@ -135,10 +133,10 @@ const projects = [
     image: "/brand/service-farmaceutico.webp",
   },
   {
-    title: "Fluxo para e-commerce",
-    copy: "Apoio logístico para lojas, sellers e operações que precisam cumprir prazos de entrega.",
-    bullets: ["Entregas expressas", "Roteirização por demanda", "Suporte a picos de pedido"],
-    image: "/brand/service-ecommerce.webp",
+    title: "Cargas empresariais",
+    copy: "Apoio logístico para empresas que precisam de coletas, distribuição e entregas com previsibilidade.",
+    bullets: ["Entregas expressas", "Roteirização por demanda", "Atendimento recorrente"],
+    image: "/brand/service-cargas-empresariais.webp",
   },
   {
     title: "Carga refrigerada",
@@ -195,10 +193,10 @@ const clientOperations = [
     Icon: ShieldCheck,
   },
   {
-    segment: "E-commerce e varejo",
-    title: "Pedidos saindo com agilidade",
-    copy: "Apoio para lojas e sellers que precisam organizar coletas, encomendas e entregas expressas.",
-    Icon: Store,
+    segment: "Empresas e distribuição",
+    title: "Cargas saindo com previsibilidade",
+    copy: "Apoio para empresas que precisam organizar coletas, distribuição e entregas expressas.",
+    Icon: Truck,
   },
   {
     segment: "Empresas com recorrência",
@@ -221,7 +219,7 @@ const clientTestimonials = [
   {
     name: "Rafael Mendes",
     role: "Coordenador comercial",
-    company: "Loja de E-commerce Regional",
+    company: "Distribuidora Regional",
     quote:
       "Precisávamos de um parceiro para entregas rápidas e recorrentes. O atendimento ficou mais organizado e os prazos passaram a ser mais claros.",
     initials: "RM",
@@ -245,7 +243,7 @@ const faqs = [
   ],
   [
     "Quais tipos de carga vocês transportam?",
-    "O foco está em produtos farmacêuticos, e-commerce, produtos refrigerados, entregas rápidas, malotes e cargas empresariais.",
+    "O foco está em produtos farmacêuticos, produtos refrigerados, entregas rápidas, malotes e cargas empresariais.",
   ],
   [
     "Como solicito uma cotação?",
@@ -399,8 +397,8 @@ export default function Home() {
           <p className="eyebrow">Transporte & Logística em Palmas, TO</p>
           <h1>Logística expressa para empresas que não podem parar</h1>
           <p>
-            A BRN Express transporta produtos farmacêuticos, encomendas de
-            e-commerce e cargas refrigeradas com operação ágil para Tocantins,
+            A BRN Express transporta produtos farmacêuticos, cargas
+            empresariais e cargas refrigeradas com operação ágil para Tocantins,
             Brasília e Goiânia.
           </p>
           <div className="hero-actions">
@@ -624,7 +622,7 @@ export default function Home() {
             e uma comunicação objetiva desde a cotação até a entrega.
           </p>
           <ul>
-            <li>Atuação com produtos farmacêuticos, refrigerados e e-commerce.</li>
+            <li>Atuação com produtos farmacêuticos, refrigerados e cargas empresariais.</li>
             <li>Base em Palmas, Tocantins, com rotas comerciais estratégicas.</li>
             <li>Atendimento para entregas urgentes, programadas e recorrentes.</li>
             <li>Processo comercial direto para reduzir dúvidas antes da coleta.</li>
@@ -650,7 +648,7 @@ export default function Home() {
             <h3>Credibilidade começa no cuidado com cada entrega.</h3>
             <p>
               Transporte para segmentos que não podem depender de improviso:
-              saúde, e-commerce, refrigerados e rotas empresariais.
+              saúde, cargas empresariais, refrigerados e rotas empresariais.
             </p>
             <a href="#contato">
               QUERO UMA COTAÇÃO <ArrowRight size={18} />
@@ -739,7 +737,7 @@ export default function Home() {
                 </option>
                 <option>Transporte farmacêutico</option>
                 <option>Produtos refrigerados</option>
-                <option>E-commerce e encomendas</option>
+                <option>Cargas empresariais</option>
                 <option>Entrega rápida</option>
                 <option>Coleta programada</option>
               </select>

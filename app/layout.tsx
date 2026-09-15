@@ -5,7 +5,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "BRN Express | Transporte e Logística em Palmas - TO",
   description:
-    "BRN Express: transporte de produtos farmacêuticos, e-commerce e cargas refrigeradas em Tocantins, Brasília e Goiânia.",
+    "BRN Express: transporte de produtos farmacêuticos, cargas empresariais e cargas refrigeradas em Tocantins, Brasília e Goiânia.",
   icons: {
     icon: "/favicon.png",
     shortcut: "/favicon.png",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "BRN Express | Transporte & Logística",
     description:
-      "Transporte farmacêutico, e-commerce e refrigerado em Tocantins, Brasília e Goiânia.",
+      "Transporte farmacêutico, cargas empresariais e refrigerado em Tocantins, Brasília e Goiânia.",
     images: ["/og.jpg"],
   },
 };
